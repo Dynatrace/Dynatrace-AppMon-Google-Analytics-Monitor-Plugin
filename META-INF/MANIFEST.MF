@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Require-Bundle: com.dynatrace.diagnostics.sdk
+Bundle-Vendor: dynaTrace Software
+Bundle-ClassPath: .,lib/activation.jar,lib/catalina-ant.jar,lib/catali
+ na-deployer.jar,lib/dsn.jar,lib/el-api.jar,lib/gdata-analytics-2.1.ja
+ r,lib/gdata-analytics-meta-2.1.jar,lib/gdata-client-1.0.jar,lib/gdata
+ -client-meta-1.0.jar,lib/gdata-core-1.0.jar,lib/gdata-media-1.0.jar,l
+ ib/google-collect-1.0-rc1.jar,lib/imap.jar,lib/jasper-el.jar,lib/jasp
+ er.jar,lib/jsp-api.jar,lib/jsr305.jar,lib/mail.jar,lib/mailapi.jar,li
+ b/pop3.jar,lib/servlet-api.jar,lib/smtp.jar,lib/tomcat-juli.jar
+Bundle-Version: 1.0.0
+Bundle-Name: Google Analytics Monitor Plugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.dynatrace.diagnostics.plugin.GoogleAnalytics;
+ singleton:=true
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!-- plugin.xml file written by dynaTrace Client 3.5.0 -->
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.dynatrace.diagnostics.plugin.GoogleAnalytics" name="Google Analytics Monitor Plugin">
+    <information>
+      <category value="" />
+      <description value="Uses the Google Analystics API to query the latest Page Visits, Bounce Rates, ... metrics from Google Analytics" />
+    </information>
+    <configuration>
+      <property key="googleAccountName" label="Google Account Name" type="string" description="This is the Google Account name that is used to authenticate with Google Analytics" default="myemail@gmail.com" />
+      <property key="googleAccountPassword" label="Google Account Password" type="password" description="Google Account Password" default="" />
+      <property key="website" label="WebSite" type="string" description="This is the name of the website as registered on Google Analytics. If you have multiple websites it is necessary to specify the website name. If the website couldnt be found the first registered website is used" default="www.mywebsite.com" />
+      <property key="lastEntry" label="Return Last Data Entry" type="boolean" description="Default:false&#xD;&#xA;If false - the delta between two measure intervals will be returns&#xD;&#xA;If true - the actual value of the last valid dataentry will be returned" default="" />
+      <property key="includeHours" label="Include Hours" type="boolean" description="Default:false&#xD;&#xA;If false - the data retrieved from Google is based on day granularity. &#xD;&#xA;If true - the data is retrieved with Hour granularity" default="" />
+      <property key="logDetails" label="Log Detailed Analytics Data" type="boolean" description="Default:false&#xD;&#xA;If true - detailed information about captured Google Analytics Data will be logged" default="" />
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.diagnostics.plugin.GoogleAnalytics.monitor" name="Google Analytics Monitor">
+    <plugin configid="com.dynatrace.diagnostics.plugin.GoogleAnalytics" class="com.dynatrace.diagnostics.plugin.GoogleAnalytics.MonitorImpl" />
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.GoogleAnalytics.monitor.metricgroup.analytics" name="Analytics">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.GoogleAnalytics.monitor">
+      <metric defaultrate="purepath" name="PageViews" unit="number" description="Number of PageViews in the last query period" />
+      <metric defaultrate="purepath" name="Visits" unit="number" description="Number of total Visits" />
+      <metric defaultrate="purepath" name="Bounces" unit="number" description="Number of visitors bounced" />
+      <metric defaultrate="purepath" name="New Visits" unit="number" description="Number of New Visitors on the page" />
+      <metric defaultrate="purepath" name="Exits" unit="number" description="Number of Exits" />
+      <metric defaultrate="purepath" name="Time on Page" unit="s" description="Time spent on page" />
+      <metric defaultrate="purepath" name="Time on Site" unit="s" description="Time spent on Site" />
+    </metricgroup>
+  </extension>
+</plugin>
+
